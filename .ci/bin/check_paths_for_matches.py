@@ -44,9 +44,9 @@ def check_paths_for_matches(pattern, git_commit, git_previous_commit):
 
     # Look for any matches of pattern -> path.
     possible_matches = [(path, pattern.match(path)) for path in paths]
-    if any([match for path, match in possible_matches]):
+    if any(match for path, match in possible_matches):
         if debug:
-            print("matching change(s) found for {}".format(git_commit))
+            print(f"matching change(s) found for {git_commit}")
             for path, match in possible_matches:
                 if match:
                     print(path)
@@ -55,7 +55,7 @@ def check_paths_for_matches(pattern, git_commit, git_previous_commit):
         exit(0)
     else:
         if debug:
-            print("no matching change(s) found for {}".format(git_commit))
+            print(f"no matching change(s) found for {git_commit}")
         exit(1)
 
 
